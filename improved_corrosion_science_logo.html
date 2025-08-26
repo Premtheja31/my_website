@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrosion Science IIT Bombay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 30% 20%, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .logo-container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .star-container {
+            position: relative;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        .star {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            display: inline-block;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .star::before,
+        .star::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #00ff88, #00cc6a, #66ff99);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .star::after {
+            background: linear-gradient(45deg, #00ff88, #88ffaa, #aaffcc);
+            transform: scale(0.8);
+            filter: blur(2px);
+            opacity: 0.7;
+            animation: rotate 15s linear infinite reverse;
+        }
+
+        .glow-ring {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 160px;
+            height: 160px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00ff88, transparent, #00ff88);
+            background-clip: padding-box;
+            opacity: 0.3;
+            animation: ringRotate 8s linear infinite;
+        }
+
+        .main-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ffffff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+            animation: textGlow 4s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            color: #b0b0b0;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00ff88;
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 15s infinite linear;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 15s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 20s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 14s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 16s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 19s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 17s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 13s; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes ringRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 30px rgba(0, 255, 136, 0.3); }
+            100% { text-shadow: 0 0 50px rgba(0, 255, 136, 0.6), 0 0 80px rgba(0, 255, 136, 0.3); }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 20px;
+                letter-spacing: 4px;
+            }
+            .subtitle {
+                font-size: 12px;
+                letter-spacing: 6px;
+            }
+            .star {
+                width: 80px;
+                height: 80px;
+            }
+            .glow-ring {
+                width: 120px;
+                height: 120px;
+                top: -20px;
+                left: -20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="logo-container">
+        <div class="star-container">
+            <div class="glow-ring"></div>
+            <div class="star"></div>
+        </div>
+        <h1 class="main-title">Corrosion Science in IIT Bombay</h1>
+        <p class="subtitle">Excellence in Research</p>
+    </div>
+</body>
+</html>
