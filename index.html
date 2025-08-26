@@ -15,12 +15,9 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: #ffffff;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         /* Loading Screen */
@@ -266,26 +263,350 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* Brochure Styles */
+        .brochure-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd23f 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="60" r="0.8" fill="rgba(255,255,255,0.12)"/><circle cx="70" cy="30" r="1.2" fill="rgba(255,255,255,0.06)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .conference-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            z-index: 2;
+            position: relative;
+        }
+
+        .conference-name {
+            font-size: 48px;
+            font-weight: 900;
+            margin: 20px 0;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            z-index: 2;
+            position: relative;
+        }
+
+        .conference-subtitle {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 300;
+            z-index: 2;
+            position: relative;
+        }
+
+        .call-for-papers {
+            font-size: 36px;
+            font-weight: bold;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            z-index: 2;
+            position: relative;
+        }
+
+        .venue-section {
+            background: white;
+            padding: 30px;
+            position: relative;
+        }
+
+        .venue-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .venue-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,0 100,0 80,100 0,100" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .date-location {
+            flex: 1;
+        }
+
+        .date-location h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .date-location p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .registration-cta {
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,107,53,0.4);
+        }
+
+        .registration-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,53,0.6);
+        }
+
+        .content-section {
+            padding: 30px;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 2px;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .topic-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            color: #2d3748;
+            border-left: 4px solid #ff6b35;
+            transition: all 0.3s ease;
+        }
+
+        .topic-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .important-dates {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .important-dates h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .dates-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .date-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .date-item strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .registration-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .registration-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .fees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .fee-card {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .fee-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .fee-category {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .fee-amount {
+            font-size: 24px;
+            font-weight: 900;
+            color: #ffd23f;
+        }
+
+        .contact-section {
+            background: #f8f9fa;
+            padding: 30px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-top: 4px solid #ff6b35;
+        }
+
+        .contact-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .contact-details {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .website-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .website-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,53,0.4);
+        }
+
         @media (max-width: 768px) {
-            .welcome-container {
-                padding: 2rem;
-                margin: 1rem;
+            .conference-name {
+                font-size: 36px;
             }
             
-            h1 {
-                font-size: 2.5rem;
+            .call-for-papers {
+                font-size: 28px;
+                padding: 10px 20px;
             }
             
-            .welcome-message {
-                font-size: 1.4rem;
+            .event-details {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
             }
             
-            p {
-                font-size: 1.1rem;
+            .dates-list {
+                grid-template-columns: 1fr;
             }
             
-            .date {
-                font-size: 1rem;
+            .topics-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -317,11 +638,155 @@
 
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
-        <div class="welcome-container">
-            <h1>Welcome!</h1>
-            <div class="welcome-message">Hello and welcome to my website!</div>
-            <p>Thank you for visiting. I hope you have a great day!</p>
-            <div class="date" id="current-date"></div>
+        <div class="brochure-container">
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="conference-title">International Conference on</div>
+                <div class="conference-name">ENGGCOAT 2026</div>
+                <div class="conference-subtitle">Engineering and Functional Coatings</div>
+                <div class="call-for-papers">CALL FOR PAPERS</div>
+            </div>
+
+            <!-- Venue Section -->
+            <div class="venue-section">
+                <div class="venue-image">
+                    <span>Victor Menezes Convention Centre (VMCC), IIT Bombay</span>
+                </div>
+                
+                <div class="event-details">
+                    <div class="date-location">
+                        <h3>📍 IIT Bombay, Mumbai</h3>
+                        <p>📅 February 25-27, 2026</p>
+                    </div>
+                    <a href="https://enggcoat2026.in/" class="registration-cta" target="_blank">REGISTER TODAY</a>
+                </div>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <a href="https://enggcoat2026.in/" class="website-link" target="_blank">🌐 Visit Conference Website</a>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="content-section">
+                <h2 class="section-title">Conference Overview</h2>
+                <p style="text-align: center; color: #666; line-height: 1.6; margin-bottom: 30px;">
+                    EnggCoat 2026 will provide a broader platform for researchers, engineers, and industry to converge, collaborate, and drive advancements in the field of engineering and functional coatings. The conference fosters cross-disciplinary collaboration to address real-world challenges and showcase cutting-edge research.
+                </p>
+
+                <h2 class="section-title">Conference Topics</h2>
+                <div class="topics-grid">
+                    <div class="topic-item">• Nickel and chromium plating</div>
+                    <div class="topic-item">• Electro-Galvanizing</div>
+                    <div class="topic-item">• Electroless nickel plating</div>
+                    <div class="topic-item">• Electrodeposited composite coatings</div>
+                    <div class="topic-item">• Anodising and sealing processes</div>
+                    <div class="topic-item">• Hot-dip galvanizing</div>
+                    <div class="topic-item">• Thermal spray coatings</div>
+                    <div class="topic-item">• Thermal barrier coatings</div>
+                    <div class="topic-item">• Physical and chemical vapor deposition</div>
+                    <div class="topic-item">• Plasma Coatings</div>
+                    <div class="topic-item">• Additive manufacturing coatings</div>
+                    <div class="topic-item">• Mechanical plating</div>
+                    <div class="topic-item">• Zn-Al flake coating processes</div>
+                    <div class="topic-item">• Multi-layered nano-crystalline coatings</div>
+                    <div class="topic-item">• Organic coatings and painting</div>
+                    <div class="topic-item">• Smart coatings (anti-corrosion/self-healing)</div>
+                    <div class="topic-item">• Wear and abrasion resistance coatings</div>
+                    <div class="topic-item">• Optical coatings</div>
+                    <div class="topic-item">• Quality control in coating applications</div>
+                    <div class="topic-item">• AI/ML in coating development</div>
+                    <div class="topic-item">• Design of coatings</div>
+                    <div class="topic-item">• Eco-friendly surface treatment processes</div>
+                    <div class="topic-item">• Pretreatment and effluent treatment</div>
+                    <div class="topic-item">• Equipment for coating processes</div>
+                </div>
+            </div>
+
+            <!-- Important Dates -->
+            <div class="important-dates">
+                <h3>📅 Important Dates</h3>
+                <div class="dates-list">
+                    <div class="date-item">
+                        <strong>Abstract Submission Deadline</strong>
+                        October 15, 2025
+                    </div>
+                    <div class="date-item">
+                        <strong>Paper Acceptance Notification</strong>
+                        November 20, 2025
+                    </div>
+                    <div class="date-item">
+                        <strong>Full Paper Submission</strong>
+                        December 30, 2025
+                    </div>
+                    <div class="date-item">
+                        <strong>Conference Dates</strong>
+                        February 25-27, 2026
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Section -->
+            <div class="registration-section">
+                <h2 class="registration-title">💰 Registration Fees</h2>
+                <div class="fees-grid">
+                    <div class="fee-card">
+                        <div class="fee-category">Academic Institutions</div>
+                        <div class="fee-amount">₹ 8,000</div>
+                    </div>
+                    <div class="fee-card">
+                        <div class="fee-category">Students</div>
+                        <div class="fee-amount">₹ 3,000</div>
+                    </div>
+                    <div class="fee-card">
+                        <div class="fee-category">Industry Delegates</div>
+                        <div class="fee-amount">₹ 12,000</div>
+                    </div>
+                    <div class="fee-card">
+                        <div class="fee-category">International (Academic)</div>
+                        <div class="fee-amount">USD 200</div>
+                    </div>
+                    <div class="fee-card">
+                        <div class="fee-category">International (Student)</div>
+                        <div class="fee-amount">USD 100</div>
+                    </div>
+                    <div class="fee-card">
+                        <div class="fee-category">International (Industry)</div>
+                        <div class="fee-amount">USD 250</div>
+                    </div>
+                </div>
+                <p style="font-size: 14px; opacity: 0.8;">* 18% GST extra on INR rates | Registration includes conference kit, meals, and grand banquet</p>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h2 class="section-title">📞 Contact Information</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Prof. Smrutiranjan Parida</div>
+                        <div class="contact-details">
+                            Department of Metallurgical Engineering<br>
+                            and Materials Science<br>
+                            Indian Institute of Technology Bombay<br>
+                            Powai, Mumbai-400076<br><br>
+                            📞 Tel: +91-22-25767643 (O)<br>
+                            📱 Mobile: +91-9004996253<br>
+                            ✉️ Email: paridasm@iitb.ac.in
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-name">Dr. Ashish Kulkarni</div>
+                        <div class="contact-details">
+                            SHREE RASAYANI<br>
+                            B 57, MIDC Ambad, Nasik 422010<br>
+                            INDIA<br><br>
+                            📱 Cell: +91 9225114066<br>
+                            ✉️ Email: shreerasayani@gmail.com<br><br>
+                            📧 General Inquiry:<br>
+                            generalinquiry@enggcoat2026.in
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -348,15 +813,40 @@
             }, 2000);
         });
 
-        // Display current date
-        const dateElement = document.getElementById('current-date');
-        const currentDate = new Date().toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+        // Add interactive animations for brochure
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate topic items on scroll
+            const topicItems = document.querySelectorAll('.topic-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            });
+
+            topicItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
+            });
+
+            // Add hover effect to fee cards
+            const feeCards = document.querySelectorAll('.fee-card');
+            feeCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.05)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
         });
-        dateElement.textContent = currentDate;
     </script>
 </body>
 </html>
